@@ -57,3 +57,7 @@ form_experience_delete:
 valid_experience:
     path: /experience/valid
     controller: App\Controller\ExperienceController::valid
+
+admin:
+    path: /admin/home
+    controller: App\Controller\BoobooController::admin

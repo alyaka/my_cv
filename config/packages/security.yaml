@@ -1,13 +1,27 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        in_memory: 
+            memory:
+                users:
+                    ryan:
+                        password: $2y$12$l0zxS9dz7RPc6LKOEUoM8O3/GP7B2H9p0kt2S879JcG9gbKXevvey
+                        roles: 'ROLE_USER'
+                    admin:
+                        password: $2y$12$8fizvYvJhacoew6WLBWF9exdiTSM0aA8Q3MwmbwU8jOHUbXc/Oay.
+                        roles: 'ROLE_ADMIN'
+    encoders:
+        Symfony\Component\Security\Core\User\User: 
+            algorithm: bcrypt
+            cost: 12
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
+            http_basic: ~
+
 
             # activate different ways to authenticate
 
@@ -20,5 +34,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

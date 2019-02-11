@@ -118,6 +118,11 @@
 				    {% for i in 0..number-1 %}
                         <li>A Key Skill</li>
                     {% endfor %}
+                    {% for skill in skills %}
+                        <li>{{ skill.getName() }}</li>
+                        <a href="{{ path('skill_edit', {'id': skill.getId() }) }}">Modifier</a>
+        				<a href="{{ path('skill_delete', {'id': skill.getId() }) }}">Effacer<br></a>
+                    {% endfor %}
 					{#<li>A Key Skill</li>#}
 					{#<li>A Key Skill</li>#}
 					{#<li>A Key Skill</li>#}
@@ -143,6 +148,8 @@
     					<h2>{{ formation.getName() }}</h2>
     					<p class="subDetails">{{ formation.getQualification() }}</p>
     					<p>{{ formation.getContent() }}</p>
+    					<a href="{{ path('form_formation_edit', {'id': formation.getId() }) }}">Modifier</a>
+        				<a href="{{ path('form_formation_delete', {'id': formation.getId() }) }}">Effacer<br></a>
     				</article>
                 {% endfor %}
 				{#<article>#}
@@ -174,6 +181,8 @@
                     <article>
     					<h2>{{ loisir.getName() }}</h2>
     					<p>{{ loisir.getCommentaire() }}</p>
+    					<a href="{{ path('form_loisir_edit', {'id': loisir.getId() }) }}">Modifier</a>
+        				<a href="{{ path('form_loisir_delete', {'id': loisir.getId() }) }}">Effacer<br></a>
     				</article>
                 {% endfor %}
                 <a href="{{ path('form_loisir') }}"> <br>Ajouter un loisir</a>

@@ -36,7 +36,16 @@ class FormationController extends AbstractController
         );
     }
      
-     
+    public function delete($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $formation = $entityManager->getRepository(Formation::class)->findOneBy(['id' => $id]);
+        $entityManager->remove($formation);
+        $entityManager->flush();
+        
+        return $this->redirectToRoute('app_Booboo');
+    }
+    
     public function valid(Request $request)
     {
         $formation = new Formation();
