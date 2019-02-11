@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
@@ -16,6 +16,7 @@ class Formation
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * 
      */
     private $id;
 
@@ -23,20 +24,22 @@ class Formation
      * @var string
      * 
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Assert\NotBlank
      */
     private $name;
     
     /**
      * @var string
      * 
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $qualification;
     
     /**
      * @var string
      * 
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $content;
 
@@ -64,7 +67,7 @@ class Formation
 
     public function setQualification(string $qualification): self
     {
-        $this->name = $qualification;
+        $this->qualification = $qualification;
 
         return $this;
     }
@@ -75,7 +78,7 @@ class Formation
 
     public function setContent(string $content): self
     {
-        $this->name = $content;
+        $this->content = $content;
 
         return $this;
     }

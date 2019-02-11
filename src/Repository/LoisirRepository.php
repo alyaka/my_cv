@@ -18,6 +18,9 @@ class LoisirRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Loisir::class);
     }
+    
+
+
 
     // /**
     //  * @return Loisir[] Returns an array of Loisir objects
@@ -47,4 +50,23 @@ class LoisirRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    /**
+     *  Find ...
+     */
+
+    
+    public function findAllLoisirs()
+        {
+            $qBuilder = $this
+                ->getEntityManager()
+                ->createQueryBuilder();
+            
+            $qBuilder->select('f');
+            $qBuilder->from('AppBundle:Loisir', 'f');
+            
+            $result = $qBuilder->getQuery()->getResult();
+            
+            return $result;
+        }
 }

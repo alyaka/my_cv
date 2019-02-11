@@ -6,18 +6,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Loisir;
-use App\Form\LoisirType;
+use App\Entity\Experience;
+use App\Form\ExperienceType;
 
-class LoisirController extends AbstractController
+class ExperienceController extends AbstractController
 {
     public function create()
      {
-         $loisir = new Loisir();
-         $form = $this->createForm(LoisirType::class, $loisir);
+         $experience = new Experience();
+         $form = $this->createForm(ExperienceType::class, $experience);
          
-         return $this->render('loisir/create.html.twig', [
-            'entity' => $loisir,
+         return $this->render('experience/create.html.twig', [
+            'entity' => $experience,
             'form' => $form->createView(),
             ]
         );
@@ -26,11 +26,11 @@ class LoisirController extends AbstractController
     public function edit($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $loisir = $entityManager->getRepository(Loisir::class)->findOneBy(['id' => $id]);
-        $form = $this->createForm(LoisirType::class, $loisir);
+        $experience = $entityManager->getRepository(Experience::class)->findOneBy(['id' => $id]);
+        $form = $this->createForm(ExperienceType::class, $experience);
         
-        return $this->render('loisir/create.html.twig', [
-            'entity' => $loisir,
+        return $this->render('experience/create.html.twig', [
+            'entity' => $experience,
             'form' => $form->createView(),
             ]
         );
@@ -39,8 +39,8 @@ class LoisirController extends AbstractController
     public function delete($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $loisir = $entityManager->getRepository(Loisir::class)->findOneBy(['id' => $id]);
-        $entityManager->remove($loisir);
+        $experience = $entityManager->getRepository(Experience::class)->findOneBy(['id' => $id]);
+        $entityManager->remove($experience);
         $entityManager->flush();
         
         return $this->redirectToRoute('app_Booboo');
@@ -48,24 +48,24 @@ class LoisirController extends AbstractController
      
     public function valid(Request $request)
     {
-        $loisir = new Loisir();
-        $form = $this->createForm(LoisirType::class, $loisir);
+        $experience = new Experience();
+        $form = $this->createForm(ExperienceType::class, $experience);
         
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $loisir = $form->getData();
+            $experience = $form->getData();
             
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($loisir);
+            $entityManager->persist($experience);
             $entityManager->flush();
             
             return $this->redirectToRoute('app_Booboo');
         }
         
         
-        return $this->render('loisir/create.html.twig', [
-            'entity' => $loisir,
+        return $this->render('experience/create.html.twig', [
+            'entity' => $experience,
             'form' => $form->createView(),
             ]
         );

@@ -4,10 +4,56 @@
 #index:
 #    path: /
 #    defaults: { _controller: 'App\Controller\DefaultController::index' }
-app_lucky_number:
-    path: /Booboo/{name}/{firstname}
+app_Booboo:
+    path: /Booboo
     controller: App\Controller\BoobooController::number
+
     
-app_lucky_number2:
+form_loisir:
     path: /loisir/create
     controller: App\Controller\LoisirController::create
+
+form_loisir_edit:
+    path: /loisir/edit/{id}
+    controller: App\Controller\LoisirController::edit
+    
+form_loisir_delete:
+    path: /loisir/delete/{id}
+    controller: App\Controller\LoisirController::delete
+
+valid_loisir:
+    path: /loisir/valid
+    controller: App\Controller\LoisirController::valid
+    
+form_formation:
+    path: /formation/create
+    controller: App\Controller\FormationController::create
+
+form_formation_edit:
+    path: /formation/edit/{id}
+    controller: App\Controller\FormationController::edit
+    
+form_formation_delete:
+    path: /formation/delete/{id}
+    controller: App\Controller\FormationController::delete
+
+valid_formation:
+    path: /formation/valid
+    controller: App\Controller\FormationController::valid
+    
+
+form_experience:
+    path: /experience/create
+    controller: App\Controller\ExperienceController::create
+
+form_experience_edit:
+    path: /experience/edit/{id}
+    controller: App\Controller\ExperienceController::edit
+    
+form_experience_delete:
+    path: /experience/delete/{id}
+    controller: App\Controller\ExperienceController::delete
+
+valid_experience:
+    path: /experience/valid
+    controller: App\Controller\ExperienceController::valid

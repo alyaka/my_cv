@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
@@ -30,21 +30,27 @@ class Experience
     /**
      * @var date
      * 
-     * @ORM\Column(type="datetime", name="dateDebut")
+     * @ORM\Column(type="datetime", name="dateDebut", nullable=true)
+     * 
+     * @Assert\NotBlank
+     * @Assert\Type("\DateTime")
      */
     private $dateDebut;
     
     /**
      * @var date
      * 
-     * @ORM\Column(type="datetime", name="dateFin")
+     * @ORM\Column(type="datetime", name="dateFin", nullable=true)
+     * 
+     * @Assert\NotBlank
+     * @Assert\Type("\DateTime")
      */
     private $dateFin;
     
     /**
      * @var string
      * 
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $content;
     
@@ -83,7 +89,7 @@ class Experience
 
     public function setDateFin(\DateTime $dateFin): self
     {
-        $this->dateDebut = $dateFin;
+        $this->dateFin = $dateFin;
 
         return $this;
     }
@@ -95,7 +101,7 @@ class Experience
 
     public function setContent(string $content): self
     {
-        $this->name = $content;
+        $this->content = $content;
 
         return $this;
     }

@@ -6,10 +6,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Formation;
 use App\Entity\Experience;
+use App\Entity\Loisir;
 
 class BoobooController extends Controller
 {
-    public function number($name, $firstname)
+    public function number()
     {
         $number = random_int(0, 10);
         
@@ -17,12 +18,15 @@ class BoobooController extends Controller
         
         $experiences = $this->getDoctrine()->getRepository(Experience::class)->findAll();
         
+        $loisirs = $this->getDoctrine()->getRepository(Loisir::class)->findAll();
+        
         return $this->render('Booboo/wow.html.twig', array(
              'number' => $number,
-             'name' => $name,
-             'firstname' => $firstname,
+             'name' => "ooouuw",
+             'firstname' => "waoo",
              'formations' => $formations,
              'experiences' => $experiences,
+             'loisirs' => $loisirs
         ));
     }
 }

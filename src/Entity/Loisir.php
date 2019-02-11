@@ -23,6 +23,11 @@ class Loisir
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+    
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $commentaire;
 
     public function getId(): ?int
     {
@@ -37,6 +42,18 @@ class Loisir
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+    
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
+
+    public function setCommentaire(string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
 
         return $this;
     }
