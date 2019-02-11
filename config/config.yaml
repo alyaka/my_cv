@@ -1,0 +1,6 @@
+doctrine:
+    dbal:
+        driver:   axelle
+        host:     '%database_host%'
+        dbname:   '%database_name%'
+        user:     '%database_user%'

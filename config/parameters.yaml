@@ -1,0 +1,4 @@
+parameters:
+    database_host:     localhost
+    database_name:     formation
+    database_user:     axelle
