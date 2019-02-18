@@ -12,34 +12,37 @@ use App\Form\LoisirType;
 class LoisirController extends AbstractController
 {
     public function create()
-     {
-         $loisir = new Loisir();
-         $form = $this->createForm(LoisirType::class, $loisir);
+    {
+        $loisir = new Loisir();
+        $form = $this->createForm(LoisirType::class, $loisir);
          
-         return $this->render('loisir/create.html.twig', [
+        return $this->render(
+            'loisir/create.html.twig',
+            [
             'entity' => $loisir,
             'form' => $form->createView(),
             ]
         );
-     }
+    }
      
     public function edit($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $loisir = $entityManager->getRepository(Loisir::class)->findOneBy(['id' => $id]);
         
-        if ($loisir){
+        if ($loisir) {
             $form = $this->createForm(LoisirType::class, $loisir);
             
-            return $this->render('loisir/create.html.twig', [
+            return $this->render(
+                'loisir/create.html.twig',
+                [
                 'entity' => $loisir,
                 'form' => $form->createView(),
                 ]
-        );
+            );
         } else {
             return new Response('<html><body>This ID does not exist!</body></html>');
         }
-        
     }
     
     public function delete($id)
@@ -47,7 +50,7 @@ class LoisirController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $loisir = $entityManager->getRepository(Loisir::class)->findOneBy(['id' => $id]);
         
-        if ($loisir){
+        if ($loisir) {
             $entityManager->remove($loisir);
             $entityManager->flush();
             
@@ -55,7 +58,6 @@ class LoisirController extends AbstractController
         } else {
             return new Response('<html><body>This ID does not exist!</body></html>');
         }
-        
     }
      
     public function valid(Request $request)
@@ -75,12 +77,12 @@ class LoisirController extends AbstractController
             return $this->redirectToRoute('app_Booboo');
         }
         
-        
-        return $this->render('loisir/create.html.twig', [
+        return $this->render(
+            'loisir/create.html.twig',
+            [
             'entity' => $loisir,
             'form' => $form->createView(),
             ]
         );
     }
-     
 }

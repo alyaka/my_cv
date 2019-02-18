@@ -16,29 +16,29 @@ class Formation
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * 
+     *
      */
     private $id;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(type="string", length=255)
-     * 
+     *
      * @Assert\NotBlank
      */
     private $name;
     
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $qualification;
     
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $content;

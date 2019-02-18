@@ -12,26 +12,27 @@ use App\Form\FormationType;
 class FormationController extends AbstractController
 {
     public function create()
-     {
-         $formation = new Formation();
-         $form = $this->createForm(FormationType::class, $formation);
-         
-         return $this->render('formation/create.html.twig', [
+    {
+        $formation = new Formation();
+        $form = $this->createForm(FormationType::class, $formation);
+        return $this->render(
+            'formation/create.html.twig',
+            [
             'entity' => $formation,
             'form' => $form->createView(),
             ]
         );
-     }
-     
+    }
     public function edit($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $formation = $entityManager->getRepository(Formation::class)->findOneBy(['id' => $id]);
         
-        if ($formation){
+        if ($formation) {
             $form = $this->createForm(FormationType::class, $formation);
-            
-            return $this->render('formation/create.html.twig', [
+            return $this->render(
+                'formation/create.html.twig',
+                [
                 'entity' => $formation,
                 'form' => $form->createView(),
                 ]
@@ -39,7 +40,6 @@ class FormationController extends AbstractController
         } else {
             return new Response('<html><body>This ID does not exist!</body></html>');
         }
-        
     }
      
     public function delete($id)
@@ -47,7 +47,7 @@ class FormationController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $formation = $entityManager->getRepository(Formation::class)->findOneBy(['id' => $id]);
         
-        if ($formation){
+        if ($formation) {
             $entityManager->remove($formation);
             $entityManager->flush();
             
@@ -55,7 +55,6 @@ class FormationController extends AbstractController
         } else {
             return new Response('<html><body>This ID does not exist!</body></html>');
         }
-        
     }
     
     public function valid(Request $request)
@@ -75,12 +74,12 @@ class FormationController extends AbstractController
             return $this->redirectToRoute('app_Booboo');
         }
         
-        
-        return $this->render('formation/create.html.twig', [
+        return $this->render(
+            'formation/create.html.twig',
+            [
             'entity' => $formation,
             'form' => $form->createView(),
             ]
         );
     }
-     
 }

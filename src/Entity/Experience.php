@@ -22,16 +22,16 @@ class Experience
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(type="string", name="name")
      */
     private $name;
     
     /**
      * @var date
-     * 
+     *
      * @ORM\Column(type="datetime", name="dateDebut", nullable=true)
-     * 
+     *
      * @Assert\NotBlank
      * @Assert\Type("\DateTime")
      */
@@ -39,9 +39,9 @@ class Experience
     
     /**
      * @var date
-     * 
+     *
      * @ORM\Column(type="datetime", name="dateFin", nullable=true)
-     * 
+     *
      * @Assert\NotBlank
      * @Assert\Type("\DateTime")
      */
@@ -49,7 +49,7 @@ class Experience
     
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $content;
@@ -105,5 +105,4 @@ class Experience
 
         return $this;
     }
-    
 }
