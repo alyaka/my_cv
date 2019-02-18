@@ -40,4 +40,13 @@ class BoobooController extends Controller
         // return new Response('<html><body>Admin page!</body></html>');
         return $this->redirectToRoute('app_Booboo');
     }
+    
+    public function testModeFormation(){
+        $a = new Formation();
+        
+        $this->assertEmpty($a->getId());
+        
+        $a->setName('Symfony');
+        $a->setContent('dsxhytxtyb');
+    }
 }
