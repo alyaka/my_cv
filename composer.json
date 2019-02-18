@@ -65,6 +65,7 @@
         }
     },
     "require-dev": {
+        "escapestudios/symfony2-coding-standard": "3.x-dev",
         "symfony/profiler-pack": "^1.0"
     }
 }

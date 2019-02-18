@@ -57,16 +57,16 @@ class LoisirRepository extends ServiceEntityRepository
 
     
     public function findAllLoisirs()
-        {
-            $qBuilder = $this
-                ->getEntityManager()
-                ->createQueryBuilder();
+    {
+        $qBuilder = $this
+            ->getEntityManager()
+            ->createQueryBuilder();
             
-            $qBuilder->select('f');
-            $qBuilder->from('AppBundle:Loisir', 'f');
+        $qBuilder->select('f');
+        $qBuilder->from('AppBundle:Loisir', 'f');
             
-            $result = $qBuilder->getQuery()->getResult();
+        $result = $qBuilder->getQuery()->getResult();
             
-            return $result;
-        }
+        return $result;
+    }
 }
