@@ -27,23 +27,35 @@ class FormationController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $formation = $entityManager->getRepository(Formation::class)->findOneBy(['id' => $id]);
-        $form = $this->createForm(FormationType::class, $formation);
         
-        return $this->render('formation/create.html.twig', [
-            'entity' => $formation,
-            'form' => $form->createView(),
-            ]
-        );
+        if ($formation){
+            $form = $this->createForm(FormationType::class, $formation);
+            
+            return $this->render('formation/create.html.twig', [
+                'entity' => $formation,
+                'form' => $form->createView(),
+                ]
+            );
+        } else {
+            return new Response('<html><body>This ID does not exist!</body></html>');
+        }
+        
     }
      
     public function delete($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $formation = $entityManager->getRepository(Formation::class)->findOneBy(['id' => $id]);
-        $entityManager->remove($formation);
-        $entityManager->flush();
         
-        return $this->redirectToRoute('app_Booboo');
+        if ($formation){
+            $entityManager->remove($formation);
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('app_Booboo');
+        } else {
+            return new Response('<html><body>This ID does not exist!</body></html>');
+        }
+        
     }
     
     public function valid(Request $request)

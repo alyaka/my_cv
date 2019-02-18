@@ -77,8 +77,11 @@
         				<h2>{{ experience.getName() }}</h2>
         				<p class="subDetails">{{ experience.getdateDebut()|date("m/d/Y") }} - {{ experience.getdateFin()|date("m/d/Y") }}</p>
         				<p>{{ experience.getContent() }}</p>
-        				<a href="{{ path('form_experience_edit', {'id': experience.getId() }) }}">Modifier</a>
-        				<a href="{{ path('form_experience_delete', {'id': experience.getId() }) }}">Effacer<br></a>
+        				{% if is_granted('ROLE_ADMIN') %}
+	    					<a href="{{ path('form_experience_edit', {'id': experience.getId() }) }}">Modifier</a>
+	        				<a href="{{ path('form_experience_delete', {'id': experience.getId() }) }}">Effacer<br></a>
+						{% endif %}
+        				
         			
         			</article>
                 {% endfor %}
@@ -99,7 +102,10 @@
 				{#	<p class="subDetails">October 2004 - December 2006</p>#}
 				{#	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>#}
 				{#</article>#}
-				<a href="{{ path('form_experience') }}"><br>Ajouter une experience</a>
+				{% if is_granted('ROLE_ADMIN') %}
+	    			<a href="{{ path('form_experience') }}"><br>Ajouter une experience</a>		
+				{% endif %}
+				
 				{#<a href="{{ path('form_experience_edit') }}"><br>Editer une experience</a>#}
 				
 			</div>
@@ -120,8 +126,10 @@
                     {% endfor %}
                     {% for skill in skills %}
                         <li>{{ skill.getName() }}</li>
-                        <a href="{{ path('skill_edit', {'id': skill.getId() }) }}">Modifier</a>
-        				<a href="{{ path('skill_delete', {'id': skill.getId() }) }}">Effacer<br></a>
+                        {% if is_granted('ROLE_ADMIN') %}
+	    					<a href="{{ path('skill_edit', {'id': skill.getId() }) }}">Modifier</a>
+	        				<a href="{{ path('skill_delete', {'id': skill.getId() }) }}">Effacer<br></a>
+						{% endif %}
                     {% endfor %}
 					{#<li>A Key Skill</li>#}
 					{#<li>A Key Skill</li>#}
@@ -132,6 +140,9 @@
 					{#<li>A Key Skill</li>#}
 					{#<li>A Key Skill</li>#}
 				</ul>
+				{% if is_granted('ROLE_ADMIN') %}
+	    			<a href="{{ path('skill_new') }}"><br>Ajouter une compétence</a>		
+				{% endif %}
 			</div>
 			<div class="clear"></div>
 		</section>
@@ -148,8 +159,10 @@
     					<h2>{{ formation.getName() }}</h2>
     					<p class="subDetails">{{ formation.getQualification() }}</p>
     					<p>{{ formation.getContent() }}</p>
-    					<a href="{{ path('form_formation_edit', {'id': formation.getId() }) }}">Modifier</a>
-        				<a href="{{ path('form_formation_delete', {'id': formation.getId() }) }}">Effacer<br></a>
+						{% if is_granted('ROLE_ADMIN') %}
+						    <a href="{{ path('form_formation_edit', {'id': formation.getId() }) }}">Modifier</a>
+        					<a href="{{ path('form_formation_delete', {'id': formation.getId() }) }}">Effacer<br></a>
+						{% endif %}
     				</article>
                 {% endfor %}
 				{#<article>#}
@@ -163,7 +176,10 @@
 				{#	<p class="subDetails">Qualification</p>#}
 				{#	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>#}
 				{#</article>#}
-				<a href="{{ path('form_formation') }}"><br>Ajouter une formation</a>
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('form_formation') }}"><br>Ajouter une formation</a>
+				{% endif %}
+				
 			</div>
 			
 			<div class="clear"></div>
@@ -175,23 +191,23 @@
 			<div class="sectionTitle">
 				<h1>Hobbies</h1>
 			</div>
-			
 			<div class="sectionContent">
 			    {% for loisir in loisirs %}
                     <article>
     					<h2>{{ loisir.getName() }}</h2>
     					<p>{{ loisir.getCommentaire() }}</p>
-    					<a href="{{ path('form_loisir_edit', {'id': loisir.getId() }) }}">Modifier</a>
-        				<a href="{{ path('form_loisir_delete', {'id': loisir.getId() }) }}">Effacer<br></a>
+    					{% if is_granted('ROLE_ADMIN') %}
+	    					<a href="{{ path('form_loisir_edit', {'id': loisir.getId() }) }}">Modifier</a>
+	        				<a href="{{ path('form_loisir_delete', {'id': loisir.getId() }) }}">Effacer<br></a>
+						{% endif %}
     				</article>
                 {% endfor %}
-                <a href="{{ path('form_loisir') }}"> <br>Ajouter un loisir</a>
+                {% if is_granted('ROLE_ADMIN') %}
+    				<a href="{{ path('form_loisir') }}"> <br>Ajouter un loisir</a>
+				{% endif %}
             </div>
-            
 			<div class="clear"></div>
-			
 		</section>
-		
 	</div>
 </div>
 <script type="text/javascript">

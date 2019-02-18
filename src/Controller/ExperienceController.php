@@ -27,23 +27,34 @@ class ExperienceController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $experience = $entityManager->getRepository(Experience::class)->findOneBy(['id' => $id]);
-        $form = $this->createForm(ExperienceType::class, $experience);
         
-        return $this->render('experience/create.html.twig', [
-            'entity' => $experience,
-            'form' => $form->createView(),
-            ]
-        );
+        if ($experience) {
+            $form = $this->createForm(ExperienceType::class, $experience);
+            
+            return $this->render('experience/create.html.twig', [
+                'entity' => $experience,
+                'form' => $form->createView(),
+                ]
+            );
+        } else {
+            return new Response('<html><body>This ID does not exist!</body></html>');
+        }
     }
     
     public function delete($id)
-    {
+    {   
         $entityManager = $this->getDoctrine()->getManager();
         $experience = $entityManager->getRepository(Experience::class)->findOneBy(['id' => $id]);
-        $entityManager->remove($experience);
-        $entityManager->flush();
+            
+        if ($experience) {
+            $entityManager->remove($experience);
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('app_Booboo'); 
+        } else {
+            return new Response('<html><body>This ID does not exist!</body></html>');
+        }
         
-        return $this->redirectToRoute('app_Booboo');
     }
      
     public function valid(Request $request)
