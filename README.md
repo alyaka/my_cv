@@ -8,4 +8,5 @@ Voici mon CV.
 [capture]: https://github.com/alyaka/my_cv/blob/master/public/Capture.PNG
 ## Version privée 
 [capture2]: https://github.com/alyaka/my_cv/blob/master/public/Capture2.PNG
-[capture3]: https://github.com/alyaka/my_cv/blob/master/public/Capture3.PNG
+[capture3]: https://github.com/alyaka/my_cv/blob/master/public/Capture3.PNG?raw=true
+![screenshot](https://i.imgur.com/0d1nl7g.png "screenshot")
