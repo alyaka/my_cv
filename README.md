@@ -1,7 +1,8 @@
 # MY CV
 Voici mon CV.
 * Accessible par https://symphony-axelle.c9users.io/my_cv/public/index.php/Booboo
-* Personnalisable par https://symphony-axelle.c9users.io/my_cv/public/index.php/Booboo/admin/home     login= admin    mdp= kitten
+* Personnalisable par https://symphony-axelle.c9users.io/my_cv/public/index.php/Booboo/admin/home
+    login= admin    mdp= kitten
 
 ## Version publique
 [capture]: /symphony/my_cv/public/Capture.PNG
