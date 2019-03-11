@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <h1>Création d'une nouvelle formation</h1>
-    {{ form_start(form, {'action': path('valid_formation') }) }}
-    {{ form(form) }}
+    <head>
+        <link type="text/css" rel="stylesheet" href="{{ asset('style.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+        
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+<body id="top">
+    <div id="cv" class="instaFade">
+        <div class="mainDetails">
+            <section>
+                <div class="sectionTitle">
+                    <h1>Création d'une nouvelle formation</h1>
+                </div>
+                <div class="sectionContent">
+                    {{ form_start(form, {'action': path('valid_formation') }) }}
+                    {{ form(form) }}
+                </div>
+                <div class="clear"></div>
+            </section>
+        </div>
+    </div>
+</body>
 </html>

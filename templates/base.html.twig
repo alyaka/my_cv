@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link type="text/css" rel="stylesheet" href="{{ asset('style.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+        
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body id="top">
+        <div id="cv" class="instaFade">
+            <div class="mainDetails">
+                <section>
+                    <div class="sectionTitle">
+                        <h1>Création d'une nouvelle compétence</h1>
+                    </div>
+                    <div class="sectionContent">
+                        {% block body %}{% endblock %}
+                        {% block javascripts %}{% endblock %}
+                    </div>
+                <div class="clear"></div>
+            </section>
+        </div>
+    </div>
     </body>
 </html>
