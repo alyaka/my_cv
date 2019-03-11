@@ -12,7 +12,7 @@ Voici mon CV.
 
 ### Accès à l'API
 https://symphony-axelle.c9users.io/my_cv/public/index.php/api
-![capture4](/my_cv/public/Capture4.PNG "capture4")
+![capture4](https://github.com/alyaka/my_cv/blob/master/public/Capture4.PNG?raw=true "capture4")
 
 ### Tests
 ...
