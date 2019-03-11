@@ -5,8 +5,7 @@ Voici mon CV.
     login= admin    mdp= kitten
 
 ## Version publique
-[capture]: https://github.com/alyaka/my_cv/blob/master/public/Capture.PNG
+![capture](https://github.com/alyaka/my_cv/blob/master/public/Capture.PNG?raw=true "capture")
 ## Version privée 
-[capture2]: https://github.com/alyaka/my_cv/blob/master/public/Capture2.PNG
-[capture3]: https://github.com/alyaka/my_cv/blob/master/public/Capture3.PNG?raw=true
-![screenshot](https://i.imgur.com/0d1nl7g.png "screenshot")
+![capture2](https://github.com/alyaka/my_cv/blob/master/public/Capture2.PNG?raw=true "capture2")
+![capture3](https://github.com/alyaka/my_cv/blob/master/public/Capture3.PNG?raw=true "capture3")
